@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+	
+    <ApplicationIcon>icon\icon.ico</ApplicationIcon>
+    <Company>sinu</Company>
+    <Copyright>2021 sinu</Copyright>
+  </PropertyGroup>
+
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="xcopy &quot;$(ProjectDir)lang\\*.*&quot; &quot;$(TargetDir)lang\\&quot; /E /Y" />
+	</Target>
+
+	<ItemGroup>
+	  <None Remove="Numouse.zip" />
+	  <None Remove="packup.bat" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="icon\icon.ico" />
+	</ItemGroup>
+
+</Project>

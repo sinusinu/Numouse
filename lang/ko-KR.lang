@@ -1,0 +1,15 @@
+click_interval=클릭 속도
+click_interval_none=광클
+click_interval_seconds=아래 초마다 클릭
+click_interval_seconds_postfix=초
+stop_condition=종료 조건
+stop_condition_never=없음 (직접 멈출 때까지 반복)
+stop_condition_after=아래 초만큼 클릭 후 멈춤
+stop_condition_after_postfix=초
+stop_condition_on=아래 시간이 되면 멈춤
+stop_condition_on_hour_postfix=시
+stop_condition_on_min_postfix=분 (24시간)
+tip_capslock=Caps Lock을 활성화하여 클릭을 일시 중단할 수 있습니다.
+tip_capslock_enabled=현재 클릭하고 있지 않음 (Caps Lock 켜짐)
+button_start=시작
+button_stop=정지
