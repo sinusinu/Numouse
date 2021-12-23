@@ -140,35 +140,11 @@ namespace Numouse {
             if (clickSpeedMode == ClickSpeed.Interval) {
                 if (DateTime.Now > clickIntervalTargetNextTime) {
                     while (clickIntervalTargetNextTime < DateTime.Now) clickIntervalTargetNextTime = clickIntervalTargetNextTime.AddSeconds(clickIntervalSec);
-                    if (!isCapsLockOn) SimulateClick();
+                    if (!isCapsLockOn) MouseActions.SimulateClick();
                 }
             } else {
-                if (!isCapsLockOn) SimulateClick();
+                if (!isCapsLockOn) MouseActions.SimulateClick();
             }
-        }
-
-        private void SimulateClick() {
-            INPUT[] clickInput = new[] {
-                new INPUT {
-                    type = (uint)INPUT_TYPE.INPUT_MOUSE,
-                    U = new InputUnion {
-                        mi = new MOUSEINPUT {
-                            dwFlags = MOUSEEVENTF.LEFTDOWN,
-                            dwExtraInfo = GetMessageExtraInfo()
-                        }
-                    }
-                },
-                new INPUT {
-                    type = (uint)INPUT_TYPE.INPUT_MOUSE,
-                    U = new InputUnion {
-                        mi = new MOUSEINPUT {
-                            dwFlags = MOUSEEVENTF.LEFTUP,
-                            dwExtraInfo = GetMessageExtraInfo()
-                        }
-                    }
-                }
-            };
-            SendInput((uint)clickInput.Length, clickInput, INPUT.Size);
         }
 
         private void tmrButtonEnabler_Tick(object sender, EventArgs e) {
