@@ -20,10 +20,16 @@ using static Numouse.NativeFunctions;
 
 namespace Numouse {
     public partial class MainWindow : Form {
-        private enum ClickSpeed { Immediate, Interval }
+        private enum ClickSpeed { Immediate, Interval, Sequence }
         private enum ClickStop { Never, AfterSec, OnTime }
 
-        private ClickSpeed clickSpeedMode { get { return rdoClickSpeedImm.Checked ? ClickSpeed.Immediate : ClickSpeed.Interval; } }
+        private ClickSpeed clickSpeedMode {
+            get {
+                if (rdoClickSpeedInterval.Checked) return ClickSpeed.Interval;
+                if (rdoClickSpeedSequence.Checked) return ClickSpeed.Sequence;
+                else return ClickSpeed.Immediate;
+            }
+        }
         private int clickIntervalSec { get { return decimal.ToInt32(nudClickSpeedInterval.Value); } }
 
         private ClickStop clickStopMode {
@@ -41,6 +47,7 @@ namespace Numouse {
         private DateTime clickStopAfterTargetTime;
 
         private bool isCapsLockOn;
+        private bool isRunning = false;
 
         private LanguageManager lang;
 
@@ -81,7 +88,9 @@ namespace Numouse {
                 lblStopOnHourPostfix,
                 lblStopOnMinPostfix,
                 lblStatus,
-                btnStartStop
+                btnStartStop,
+                rdoClickSpeedSequence,
+                btnEditSequence
             };
 
             foreach (Control c in controlsToLoadText) {
@@ -90,24 +99,32 @@ namespace Numouse {
         }
 
         private void btnStartStop_Click(object sender, EventArgs e) {
-            tmrClicker.Enabled = !tmrClicker.Enabled;
-            if (tmrClicker.Enabled) {
-                gbxClickSpeed.Enabled = false;
-                gbxStop.Enabled = false;
-                btnStartStop.Text = lang.Get("button_stop");
-                btnStartStop.Enabled = false;
-                tmrButtonEnabler.Enabled = true;
-                lblStatus.Text = lang.Get("tip_capslock");
-                lblStatus.ForeColor = Color.Black;
-
-                if (clickSpeedMode == ClickSpeed.Interval) clickIntervalTargetNextTime = DateTime.Now.AddSeconds(clickIntervalSec);
-                if (clickStopMode == ClickStop.AfterSec) clickStopAfterTargetTime = DateTime.Now.AddSeconds(clickStopAfterSec);
+            isRunning = !isRunning;
+            if (clickSpeedMode == ClickSpeed.Sequence) {
+                // TODO: do sequence thing
             } else {
-                gbxClickSpeed.Enabled = true;
-                gbxStop.Enabled = true;
-                btnStartStop.Text = lang.Get("button_start");
-                lblStatus.Text = lang.Get("tip_capslock");
-                lblStatus.ForeColor = Color.Black;
+                if (isRunning) {
+                    tmrClicker.Enabled = true;
+
+                    gbxClickSpeed.Enabled = false;
+                    gbxStop.Enabled = false;
+                    btnStartStop.Text = lang.Get("button_stop");
+                    btnStartStop.Enabled = false;
+                    tmrButtonEnabler.Enabled = true;
+                    lblStatus.Text = lang.Get("tip_capslock");
+                    lblStatus.ForeColor = Color.Black;
+
+                    if (clickSpeedMode == ClickSpeed.Interval) clickIntervalTargetNextTime = DateTime.Now.AddSeconds(clickIntervalSec);
+                    if (clickStopMode == ClickStop.AfterSec) clickStopAfterTargetTime = DateTime.Now.AddSeconds(clickStopAfterSec);
+                } else {
+                    tmrClicker.Enabled = false;
+
+                    gbxClickSpeed.Enabled = true;
+                    gbxStop.Enabled = true;
+                    btnStartStop.Text = lang.Get("button_start");
+                    lblStatus.Text = lang.Get("tip_capslock");
+                    lblStatus.ForeColor = Color.Black;
+                }
             }
         }
 

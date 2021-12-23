@@ -62,6 +62,8 @@ namespace Numouse {
             this.btnStartStop = new System.Windows.Forms.Button();
             this.tmrClicker = new System.Windows.Forms.Timer(this.components);
             this.tmrButtonEnabler = new System.Windows.Forms.Timer(this.components);
+            this.rdoClickSpeedSequence = new System.Windows.Forms.RadioButton();
+            this.btnEditSequence = new System.Windows.Forms.Button();
             this.gbxClickSpeed.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudClickSpeedInterval)).BeginInit();
             this.gbxStop.SuspendLayout();
@@ -72,13 +74,15 @@ namespace Numouse {
             // 
             // gbxClickSpeed
             // 
+            this.gbxClickSpeed.Controls.Add(this.btnEditSequence);
+            this.gbxClickSpeed.Controls.Add(this.rdoClickSpeedSequence);
             this.gbxClickSpeed.Controls.Add(this.lblClickSpeedIntervalPostfix);
             this.gbxClickSpeed.Controls.Add(this.nudClickSpeedInterval);
             this.gbxClickSpeed.Controls.Add(this.rdoClickSpeedInterval);
             this.gbxClickSpeed.Controls.Add(this.rdoClickSpeedImm);
             this.gbxClickSpeed.Location = new System.Drawing.Point(12, 12);
             this.gbxClickSpeed.Name = "gbxClickSpeed";
-            this.gbxClickSpeed.Size = new System.Drawing.Size(350, 104);
+            this.gbxClickSpeed.Size = new System.Drawing.Size(350, 126);
             this.gbxClickSpeed.TabIndex = 0;
             this.gbxClickSpeed.TabStop = false;
             this.gbxClickSpeed.Tag = "click_interval";
@@ -153,7 +157,7 @@ namespace Numouse {
             this.gbxStop.Controls.Add(this.nudStopAfterSec);
             this.gbxStop.Controls.Add(this.rdoStopAfterSec);
             this.gbxStop.Controls.Add(this.rdoStopNever);
-            this.gbxStop.Location = new System.Drawing.Point(12, 122);
+            this.gbxStop.Location = new System.Drawing.Point(12, 144);
             this.gbxStop.Name = "gbxStop";
             this.gbxStop.Size = new System.Drawing.Size(350, 160);
             this.gbxStop.TabIndex = 1;
@@ -279,7 +283,7 @@ namespace Numouse {
             // 
             // lblStatus
             // 
-            this.lblStatus.Location = new System.Drawing.Point(12, 287);
+            this.lblStatus.Location = new System.Drawing.Point(12, 309);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(350, 18);
             this.lblStatus.TabIndex = 2;
@@ -289,7 +293,7 @@ namespace Numouse {
             // 
             // btnStartStop
             // 
-            this.btnStartStop.Location = new System.Drawing.Point(12, 308);
+            this.btnStartStop.Location = new System.Drawing.Point(12, 330);
             this.btnStartStop.Name = "btnStartStop";
             this.btnStartStop.Size = new System.Drawing.Size(350, 29);
             this.btnStartStop.TabIndex = 9;
@@ -308,11 +312,32 @@ namespace Numouse {
             this.tmrButtonEnabler.Interval = 1000;
             this.tmrButtonEnabler.Tick += new System.EventHandler(this.tmrButtonEnabler_Tick);
             // 
+            // rdoClickSpeedSequence
+            // 
+            this.rdoClickSpeedSequence.AutoSize = true;
+            this.rdoClickSpeedSequence.Location = new System.Drawing.Point(15, 99);
+            this.rdoClickSpeedSequence.Name = "rdoClickSpeedSequence";
+            this.rdoClickSpeedSequence.Size = new System.Drawing.Size(122, 19);
+            this.rdoClickSpeedSequence.TabIndex = 4;
+            this.rdoClickSpeedSequence.Tag = "click_interval_sequence";
+            this.rdoClickSpeedSequence.Text = "Execute Sequence";
+            this.rdoClickSpeedSequence.UseVisualStyleBackColor = true;
+            // 
+            // btnEditSequence
+            // 
+            this.btnEditSequence.Location = new System.Drawing.Point(143, 97);
+            this.btnEditSequence.Name = "btnEditSequence";
+            this.btnEditSequence.Size = new System.Drawing.Size(94, 23);
+            this.btnEditSequence.TabIndex = 5;
+            this.btnEditSequence.Tag = "edit_sequence";
+            this.btnEditSequence.Text = "Configure...";
+            this.btnEditSequence.UseVisualStyleBackColor = true;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(374, 349);
+            this.ClientSize = new System.Drawing.Size(374, 371);
             this.Controls.Add(this.btnStartStop);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.gbxStop);
@@ -355,5 +380,7 @@ namespace Numouse {
         private NumericUpDown nudStopOnTimeHour;
         private System.Windows.Forms.Timer tmrClicker;
         private System.Windows.Forms.Timer tmrButtonEnabler;
+        private Button btnEditSequence;
+        private RadioButton rdoClickSpeedSequence;
     }
 }
