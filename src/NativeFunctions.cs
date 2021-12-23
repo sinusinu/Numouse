@@ -18,6 +18,8 @@
 
 using System.Runtime.InteropServices;
 
+#pragma warning disable CA1069
+
 namespace Numouse {
     internal static class NativeFunctions {
         #region ugh
@@ -974,3 +976,5 @@ namespace Numouse {
         internal static extern IntPtr GetMessageExtraInfo();
     }
 }
+
+#pragma warning restore CA1069
