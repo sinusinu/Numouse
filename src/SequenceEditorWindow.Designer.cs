@@ -23,7 +23,8 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.label1 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SequenceEditorWindow));
+            this.lblCurrentTitle = new System.Windows.Forms.Label();
             this.lvSequence = new System.Windows.Forms.ListView();
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -35,14 +36,15 @@
             this.gbxAdd = new System.Windows.Forms.GroupBox();
             this.SuspendLayout();
             // 
-            // label1
+            // lblCurrentTitle
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Current Sequence";
+            this.lblCurrentTitle.AutoSize = true;
+            this.lblCurrentTitle.Location = new System.Drawing.Point(12, 9);
+            this.lblCurrentTitle.Name = "lblCurrentTitle";
+            this.lblCurrentTitle.Size = new System.Drawing.Size(103, 15);
+            this.lblCurrentTitle.TabIndex = 1;
+            this.lblCurrentTitle.Tag = "se_current_title";
+            this.lblCurrentTitle.Text = "Current Sequence";
             // 
             // lvSequence
             // 
@@ -59,8 +61,10 @@
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(102, 23);
             this.btnOk.TabIndex = 3;
+            this.btnOk.Tag = "se_ok";
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // btnCancel
             // 
@@ -69,8 +73,10 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(102, 23);
             this.btnCancel.TabIndex = 4;
+            this.btnCancel.Tag = "se_cancel";
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnRemove
             // 
@@ -80,6 +86,7 @@
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(210, 23);
             this.btnRemove.TabIndex = 5;
+            this.btnRemove.Tag = "se_remove";
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = true;
             // 
@@ -91,6 +98,7 @@
             this.btnMoveUp.Name = "btnMoveUp";
             this.btnMoveUp.Size = new System.Drawing.Size(102, 23);
             this.btnMoveUp.TabIndex = 7;
+            this.btnMoveUp.Tag = "se_up";
             this.btnMoveUp.Text = "Move Up";
             this.btnMoveUp.UseVisualStyleBackColor = true;
             // 
@@ -102,6 +110,7 @@
             this.btnMoveDown.Name = "btnMoveDown";
             this.btnMoveDown.Size = new System.Drawing.Size(102, 23);
             this.btnMoveDown.TabIndex = 8;
+            this.btnMoveDown.Tag = "se_down";
             this.btnMoveDown.Text = "Move Down";
             this.btnMoveDown.UseVisualStyleBackColor = true;
             // 
@@ -112,6 +121,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(102, 23);
             this.btnSave.TabIndex = 10;
+            this.btnSave.Tag = "se_save";
             this.btnSave.Text = "Save...";
             this.btnSave.UseVisualStyleBackColor = true;
             // 
@@ -122,6 +132,7 @@
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(102, 23);
             this.btnLoad.TabIndex = 9;
+            this.btnLoad.Tag = "se_load";
             this.btnLoad.Text = "Load...";
             this.btnLoad.UseVisualStyleBackColor = true;
             // 
@@ -133,6 +144,7 @@
             this.gbxAdd.Size = new System.Drawing.Size(210, 253);
             this.gbxAdd.TabIndex = 11;
             this.gbxAdd.TabStop = false;
+            this.gbxAdd.Tag = "se_add_group";
             this.gbxAdd.Text = "Add";
             // 
             // SequenceEditorWindow
@@ -149,18 +161,21 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.lvSequence);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblCurrentTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "SequenceEditorWindow";
+            this.Tag = "se_title";
             this.Text = "Configure";
+            this.Load += new System.EventHandler(this.SequenceEditorWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private Label label1;
+        private Label lblCurrentTitle;
         private ListView lvSequence;
         private Button btnOk;
         private Button btnCancel;
