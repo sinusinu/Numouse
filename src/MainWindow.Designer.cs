@@ -44,6 +44,8 @@ namespace Numouse {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.gbxClickSpeed = new System.Windows.Forms.GroupBox();
+            this.btnEditSequence = new System.Windows.Forms.Button();
+            this.rdoClickSpeedSequence = new System.Windows.Forms.RadioButton();
             this.lblClickSpeedIntervalPostfix = new System.Windows.Forms.Label();
             this.nudClickSpeedInterval = new System.Windows.Forms.NumericUpDown();
             this.rdoClickSpeedInterval = new System.Windows.Forms.RadioButton();
@@ -62,8 +64,6 @@ namespace Numouse {
             this.btnStartStop = new System.Windows.Forms.Button();
             this.tmrClicker = new System.Windows.Forms.Timer(this.components);
             this.tmrButtonEnabler = new System.Windows.Forms.Timer(this.components);
-            this.rdoClickSpeedSequence = new System.Windows.Forms.RadioButton();
-            this.btnEditSequence = new System.Windows.Forms.Button();
             this.gbxClickSpeed.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudClickSpeedInterval)).BeginInit();
             this.gbxStop.SuspendLayout();
@@ -87,6 +87,28 @@ namespace Numouse {
             this.gbxClickSpeed.TabStop = false;
             this.gbxClickSpeed.Tag = "click_interval";
             this.gbxClickSpeed.Text = "Click Interval";
+            // 
+            // btnEditSequence
+            // 
+            this.btnEditSequence.Location = new System.Drawing.Point(143, 97);
+            this.btnEditSequence.Name = "btnEditSequence";
+            this.btnEditSequence.Size = new System.Drawing.Size(94, 23);
+            this.btnEditSequence.TabIndex = 5;
+            this.btnEditSequence.Tag = "edit_sequence";
+            this.btnEditSequence.Text = "Configure...";
+            this.btnEditSequence.UseVisualStyleBackColor = true;
+            this.btnEditSequence.Click += new System.EventHandler(this.btnEditSequence_Click);
+            // 
+            // rdoClickSpeedSequence
+            // 
+            this.rdoClickSpeedSequence.AutoSize = true;
+            this.rdoClickSpeedSequence.Location = new System.Drawing.Point(15, 99);
+            this.rdoClickSpeedSequence.Name = "rdoClickSpeedSequence";
+            this.rdoClickSpeedSequence.Size = new System.Drawing.Size(122, 19);
+            this.rdoClickSpeedSequence.TabIndex = 4;
+            this.rdoClickSpeedSequence.Tag = "click_interval_sequence";
+            this.rdoClickSpeedSequence.Text = "Execute Sequence";
+            this.rdoClickSpeedSequence.UseVisualStyleBackColor = true;
             // 
             // lblClickSpeedIntervalPostfix
             // 
@@ -311,27 +333,6 @@ namespace Numouse {
             // 
             this.tmrButtonEnabler.Interval = 1000;
             this.tmrButtonEnabler.Tick += new System.EventHandler(this.tmrButtonEnabler_Tick);
-            // 
-            // rdoClickSpeedSequence
-            // 
-            this.rdoClickSpeedSequence.AutoSize = true;
-            this.rdoClickSpeedSequence.Location = new System.Drawing.Point(15, 99);
-            this.rdoClickSpeedSequence.Name = "rdoClickSpeedSequence";
-            this.rdoClickSpeedSequence.Size = new System.Drawing.Size(122, 19);
-            this.rdoClickSpeedSequence.TabIndex = 4;
-            this.rdoClickSpeedSequence.Tag = "click_interval_sequence";
-            this.rdoClickSpeedSequence.Text = "Execute Sequence";
-            this.rdoClickSpeedSequence.UseVisualStyleBackColor = true;
-            // 
-            // btnEditSequence
-            // 
-            this.btnEditSequence.Location = new System.Drawing.Point(143, 97);
-            this.btnEditSequence.Name = "btnEditSequence";
-            this.btnEditSequence.Size = new System.Drawing.Size(94, 23);
-            this.btnEditSequence.TabIndex = 5;
-            this.btnEditSequence.Tag = "edit_sequence";
-            this.btnEditSequence.Text = "Configure...";
-            this.btnEditSequence.UseVisualStyleBackColor = true;
             // 
             // MainWindow
             // 

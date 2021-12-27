@@ -168,5 +168,11 @@ namespace Numouse {
             tmrButtonEnabler.Enabled = false;
             btnStartStop.Enabled = true;
         }
+
+        private void btnEditSequence_Click(object sender, EventArgs e) {
+            using (var seqEdit = new SequenceEditorWindow()) {
+                seqEdit.ShowDialog();
+            }
+        }
     }
 }
