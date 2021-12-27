@@ -13,10 +13,6 @@
     <Copyright>2021 sinu</Copyright>
   </PropertyGroup>
 
-	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-		<Exec Command="xcopy &quot;$(ProjectDir)lang\\*.*&quot; &quot;$(TargetDir)lang\\&quot; /E /Y" />
-	</Target>
-
 	<ItemGroup>
 	  <None Remove="Numouse.zip" />
 	  <None Remove="packup.bat" />
@@ -24,6 +20,15 @@
 
 	<ItemGroup>
 	  <Content Include="icon\icon.ico" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="lang\default.lang">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="lang\ko-KR.lang">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
 	</ItemGroup>
 
 </Project>
