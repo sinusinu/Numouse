@@ -10,10 +10,9 @@ I made a lame auto-clicker because I didn't liked the existing alternatives.
 
 Requires .NET 6 Runtime to run.
 
-## Before using Numouse...
+## Warning
 
-- Using Numouse for doing any illegal activity is prohibited.
-- This software is given without any warranty. Whatever you do with Numouse has nothing to do with me.
+This software is given without any warranty. I am not responsible for whatever you do with Numouse. Use at your own risk.
 
 ## License
 
