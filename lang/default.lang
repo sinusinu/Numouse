@@ -33,3 +33,12 @@ se_action_scr_up=Scroll Up
 se_action_scr_down=Scroll Down
 se_action_move_rel=Relative Move
 se_action_move_abs=Absolute Move
+se_column_behavior=Behavior
+se_column_param=Parameter
+
+param_wtitle=Input Parameter
+param_title_scroll=Scroll amount (usually 36 is one line)
+param_title_move_rel=Mouse movement (x, y)
+param_title_move_abs=Absolute mouse position (x, y)
+param_ok=&OK
+param_cancel=&Cancel

@@ -28,7 +28,6 @@ namespace Numouse {
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SequenceEditorWindow));
             this.lblCurrentTitle = new System.Windows.Forms.Label();
-            this.lvSequence = new System.Windows.Forms.ListView();
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
@@ -44,6 +43,9 @@ namespace Numouse {
             this.btnAddMiddleClick = new System.Windows.Forms.Button();
             this.btnAddRightClick = new System.Windows.Forms.Button();
             this.btnAddLeftClick = new System.Windows.Forms.Button();
+            this.lvSequence = new System.Windows.Forms.ListView();
+            this.chBehavior = new System.Windows.Forms.ColumnHeader();
+            this.chParam = new System.Windows.Forms.ColumnHeader();
             this.gbxAdd.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,14 +58,6 @@ namespace Numouse {
             this.lblCurrentTitle.TabIndex = 1;
             this.lblCurrentTitle.Tag = "se_current_title";
             this.lblCurrentTitle.Text = "Current Sequence";
-            // 
-            // lvSequence
-            // 
-            this.lvSequence.Location = new System.Drawing.Point(12, 27);
-            this.lvSequence.Name = "lvSequence";
-            this.lvSequence.Size = new System.Drawing.Size(319, 357);
-            this.lvSequence.TabIndex = 2;
-            this.lvSequence.UseCompatibleStateImageBehavior = false;
             // 
             // btnOk
             // 
@@ -113,6 +107,7 @@ namespace Numouse {
             this.btnMoveUp.Tag = "se_up";
             this.btnMoveUp.Text = "Move Up";
             this.btnMoveUp.UseVisualStyleBackColor = true;
+            this.btnMoveUp.Click += new System.EventHandler(this.btnMoveUp_Click);
             // 
             // btnMoveDown
             // 
@@ -125,6 +120,7 @@ namespace Numouse {
             this.btnMoveDown.Tag = "se_down";
             this.btnMoveDown.Text = "Move Down";
             this.btnMoveDown.UseVisualStyleBackColor = true;
+            this.btnMoveDown.Click += new System.EventHandler(this.btnMoveDown_Click);
             // 
             // btnSave
             // 
@@ -175,6 +171,7 @@ namespace Numouse {
             this.btnAddMoveAbsolute.Tag = "se_action_move_abs";
             this.btnAddMoveAbsolute.Text = "button7";
             this.btnAddMoveAbsolute.UseVisualStyleBackColor = true;
+            this.btnAddMoveAbsolute.Click += new System.EventHandler(this.btnAddMoveAbsolute_Click);
             // 
             // btnAddMoveRelative
             // 
@@ -185,6 +182,7 @@ namespace Numouse {
             this.btnAddMoveRelative.Tag = "se_action_move_rel";
             this.btnAddMoveRelative.Text = "se_action_move_rel";
             this.btnAddMoveRelative.UseVisualStyleBackColor = true;
+            this.btnAddMoveRelative.Click += new System.EventHandler(this.btnAddMoveRelative_Click);
             // 
             // btnAddScrollDown
             // 
@@ -195,6 +193,7 @@ namespace Numouse {
             this.btnAddScrollDown.Tag = "se_action_scr_down";
             this.btnAddScrollDown.Text = "button5";
             this.btnAddScrollDown.UseVisualStyleBackColor = true;
+            this.btnAddScrollDown.Click += new System.EventHandler(this.btnAddScrollDown_Click);
             // 
             // btnAddScrollUp
             // 
@@ -205,6 +204,7 @@ namespace Numouse {
             this.btnAddScrollUp.Tag = "se_action_scr_up";
             this.btnAddScrollUp.Text = "button4";
             this.btnAddScrollUp.UseVisualStyleBackColor = true;
+            this.btnAddScrollUp.Click += new System.EventHandler(this.btnAddScrollUp_Click);
             // 
             // btnAddMiddleClick
             // 
@@ -215,6 +215,7 @@ namespace Numouse {
             this.btnAddMiddleClick.Tag = "se_action_mid";
             this.btnAddMiddleClick.Text = "button3";
             this.btnAddMiddleClick.UseVisualStyleBackColor = true;
+            this.btnAddMiddleClick.Click += new System.EventHandler(this.btnAddMiddleClick_Click);
             // 
             // btnAddRightClick
             // 
@@ -225,6 +226,7 @@ namespace Numouse {
             this.btnAddRightClick.Tag = "se_action_right";
             this.btnAddRightClick.Text = "button2";
             this.btnAddRightClick.UseVisualStyleBackColor = true;
+            this.btnAddRightClick.Click += new System.EventHandler(this.btnAddRightClick_Click);
             // 
             // btnAddLeftClick
             // 
@@ -235,12 +237,40 @@ namespace Numouse {
             this.btnAddLeftClick.Tag = "se_action_left";
             this.btnAddLeftClick.Text = "button1";
             this.btnAddLeftClick.UseVisualStyleBackColor = true;
+            this.btnAddLeftClick.Click += new System.EventHandler(this.btnAddLeftClick_Click);
+            // 
+            // lvSequence
+            // 
+            this.lvSequence.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.chBehavior,
+            this.chParam});
+            this.lvSequence.Location = new System.Drawing.Point(12, 27);
+            this.lvSequence.Name = "lvSequence";
+            this.lvSequence.Size = new System.Drawing.Size(327, 357);
+            this.lvSequence.TabIndex = 7;
+            this.lvSequence.UseCompatibleStateImageBehavior = false;
+            this.lvSequence.View = System.Windows.Forms.View.Details;
+            this.lvSequence.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.lvSequence_ColumnWidthChanging);
+            this.lvSequence.SelectedIndexChanged += new System.EventHandler(this.lvSequence_SelectedIndexChanged);
+            // 
+            // chBehavior
+            // 
+            this.chBehavior.Tag = "se_column_behavior";
+            this.chBehavior.Text = "Behavior";
+            this.chBehavior.Width = 150;
+            // 
+            // chParam
+            // 
+            this.chParam.Tag = "se_column_param";
+            this.chParam.Text = "Parameter";
+            this.chParam.Width = 173;
             // 
             // SequenceEditorWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(567, 396);
+            this.Controls.Add(this.lvSequence);
             this.Controls.Add(this.gbxAdd);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnLoad);
@@ -249,12 +279,12 @@ namespace Numouse {
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
-            this.Controls.Add(this.lvSequence);
             this.Controls.Add(this.lblCurrentTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "SequenceEditorWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Tag = "se_title";
             this.Text = "Configure";
             this.Load += new System.EventHandler(this.SequenceEditorWindow_Load);
@@ -266,7 +296,6 @@ namespace Numouse {
 
         #endregion
         private Label lblCurrentTitle;
-        private ListView lvSequence;
         private Button btnOk;
         private Button btnCancel;
         private Button btnRemove;
@@ -282,5 +311,8 @@ namespace Numouse {
         private Button btnAddMiddleClick;
         private Button btnAddRightClick;
         private Button btnAddLeftClick;
+        private ListView lvSequence;
+        private ColumnHeader chBehavior;
+        private ColumnHeader chParam;
     }
 }

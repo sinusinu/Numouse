@@ -34,12 +34,15 @@ namespace Numouse {
         private bool isCapsLockOn;
         private bool isRunning = false;
 
+        private List<Behavior> sequence;
+
         private LanguageManager lang;
 
         public MainWindow() {
             InitializeComponent();
 
             lang = new LanguageManager();
+            sequence = new List<Behavior>();
         }
 
         private void rdoClickSpeedInterval_CheckedChanged(object sender, EventArgs e) {
@@ -156,9 +159,11 @@ namespace Numouse {
 
         private void btnEditSequence_Click(object sender, EventArgs e) {
             using (var seqEdit = new SequenceEditorWindow()) {
+                List<Behavior> copySeq = new List<Behavior>(sequence);
+                seqEdit.behaviors = copySeq;
                 seqEdit.ShowDialog();
                 if (seqEdit.DialogResult == DialogResult.OK) {
-
+                    sequence = copySeq;
                 }
             }
         }

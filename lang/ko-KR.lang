@@ -33,3 +33,12 @@ se_action_scr_up=위로 스크롤
 se_action_scr_down=아래로 스크롤
 se_action_move_rel=상대적 이동
 se_action_move_abs=절대적 이동
+se_column_behavior=행동
+se_column_param=매개변수
+
+param_wtitle=매개변수 입력
+param_title_scroll=스크롤 정도 (일반적으로 한 줄 스크롤 = 36)
+param_title_move_rel=마우스 움직임 (x, y)
+param_title_move_abs=마우스 위치 (x, y)
+param_ok=확인(&O)
+param_cancel=취소(&C)
