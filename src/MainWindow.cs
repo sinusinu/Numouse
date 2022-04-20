@@ -172,6 +172,9 @@ namespace Numouse {
         private void btnEditSequence_Click(object sender, EventArgs e) {
             using (var seqEdit = new SequenceEditorWindow()) {
                 seqEdit.ShowDialog();
+                if (seqEdit.DialogResult == DialogResult.OK) {
+
+                }
             }
         }
     }

@@ -18,7 +18,7 @@ button_stop=정지(&S)
 
 se_title=설정
 se_current_title=현재 시퀀스
-se_add_group=추가
+se_add_group=행동 추가
 se_remove=제거(&R)
 se_up=위로(&U)
 se_down=아래로(&D)

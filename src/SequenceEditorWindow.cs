@@ -11,11 +11,13 @@ using System.Windows.Forms;
 namespace Numouse {
     public partial class SequenceEditorWindow : Form {
         private LanguageManager lang;
+        internal List<Behavior> behaviors;
 
         public SequenceEditorWindow() {
             InitializeComponent();
 
             lang = new LanguageManager();
+            behaviors = new List<Behavior>();
         }
 
         private void SequenceEditorWindow_Load(object sender, EventArgs e) {
@@ -33,7 +35,14 @@ namespace Numouse {
                 btnLoad,
                 btnSave,
                 btnOk,
-                btnCancel
+                btnCancel,
+                btnAddLeftClick,
+                btnAddRightClick,
+                btnAddMiddleClick,
+                btnAddScrollUp,
+                btnAddScrollDown,
+                btnAddMoveRelative,
+                btnAddMoveAbsolute
             };
 
             foreach (Control c in controlsToLoadText) {

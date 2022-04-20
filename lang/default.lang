@@ -18,7 +18,7 @@ button_stop=&Stop
 
 se_title=Configure
 se_current_title=Current Sequence
-se_add_group=Add
+se_add_group=Add Behavior
 se_remove=&Remove
 se_up=Move &Up
 se_down=Move &Down

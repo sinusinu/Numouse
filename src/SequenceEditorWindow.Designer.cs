@@ -34,6 +34,14 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
             this.gbxAdd = new System.Windows.Forms.GroupBox();
+            this.btnAddMoveAbsolute = new System.Windows.Forms.Button();
+            this.btnAddMoveRelative = new System.Windows.Forms.Button();
+            this.btnAddScrollDown = new System.Windows.Forms.Button();
+            this.btnAddScrollUp = new System.Windows.Forms.Button();
+            this.btnAddMiddleClick = new System.Windows.Forms.Button();
+            this.btnAddRightClick = new System.Windows.Forms.Button();
+            this.btnAddLeftClick = new System.Windows.Forms.Button();
+            this.gbxAdd.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblCurrentTitle
@@ -139,13 +147,90 @@
             // gbxAdd
             // 
             this.gbxAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbxAdd.Controls.Add(this.btnAddMoveAbsolute);
+            this.gbxAdd.Controls.Add(this.btnAddMoveRelative);
+            this.gbxAdd.Controls.Add(this.btnAddScrollDown);
+            this.gbxAdd.Controls.Add(this.btnAddScrollUp);
+            this.gbxAdd.Controls.Add(this.btnAddMiddleClick);
+            this.gbxAdd.Controls.Add(this.btnAddRightClick);
+            this.gbxAdd.Controls.Add(this.btnAddLeftClick);
             this.gbxAdd.Location = new System.Drawing.Point(345, 12);
             this.gbxAdd.Name = "gbxAdd";
             this.gbxAdd.Size = new System.Drawing.Size(210, 253);
             this.gbxAdd.TabIndex = 11;
             this.gbxAdd.TabStop = false;
             this.gbxAdd.Tag = "se_add_group";
-            this.gbxAdd.Text = "Add";
+            this.gbxAdd.Text = "Add Behavior";
+            // 
+            // btnAddMoveAbsolute
+            // 
+            this.btnAddMoveAbsolute.Location = new System.Drawing.Point(8, 220);
+            this.btnAddMoveAbsolute.Name = "btnAddMoveAbsolute";
+            this.btnAddMoveAbsolute.Size = new System.Drawing.Size(194, 23);
+            this.btnAddMoveAbsolute.TabIndex = 6;
+            this.btnAddMoveAbsolute.Tag = "se_action_move_abs";
+            this.btnAddMoveAbsolute.Text = "button7";
+            this.btnAddMoveAbsolute.UseVisualStyleBackColor = true;
+            // 
+            // btnAddMoveRelative
+            // 
+            this.btnAddMoveRelative.Location = new System.Drawing.Point(8, 187);
+            this.btnAddMoveRelative.Name = "btnAddMoveRelative";
+            this.btnAddMoveRelative.Size = new System.Drawing.Size(194, 23);
+            this.btnAddMoveRelative.TabIndex = 5;
+            this.btnAddMoveRelative.Tag = "se_action_move_rel";
+            this.btnAddMoveRelative.Text = "se_action_move_rel";
+            this.btnAddMoveRelative.UseVisualStyleBackColor = true;
+            // 
+            // btnAddScrollDown
+            // 
+            this.btnAddScrollDown.Location = new System.Drawing.Point(8, 154);
+            this.btnAddScrollDown.Name = "btnAddScrollDown";
+            this.btnAddScrollDown.Size = new System.Drawing.Size(194, 23);
+            this.btnAddScrollDown.TabIndex = 4;
+            this.btnAddScrollDown.Tag = "se_action_scr_down";
+            this.btnAddScrollDown.Text = "button5";
+            this.btnAddScrollDown.UseVisualStyleBackColor = true;
+            // 
+            // btnAddScrollUp
+            // 
+            this.btnAddScrollUp.Location = new System.Drawing.Point(8, 121);
+            this.btnAddScrollUp.Name = "btnAddScrollUp";
+            this.btnAddScrollUp.Size = new System.Drawing.Size(194, 23);
+            this.btnAddScrollUp.TabIndex = 3;
+            this.btnAddScrollUp.Tag = "se_action_scr_up";
+            this.btnAddScrollUp.Text = "button4";
+            this.btnAddScrollUp.UseVisualStyleBackColor = true;
+            // 
+            // btnAddMiddleClick
+            // 
+            this.btnAddMiddleClick.Location = new System.Drawing.Point(8, 88);
+            this.btnAddMiddleClick.Name = "btnAddMiddleClick";
+            this.btnAddMiddleClick.Size = new System.Drawing.Size(194, 23);
+            this.btnAddMiddleClick.TabIndex = 2;
+            this.btnAddMiddleClick.Tag = "se_action_mid";
+            this.btnAddMiddleClick.Text = "button3";
+            this.btnAddMiddleClick.UseVisualStyleBackColor = true;
+            // 
+            // btnAddRightClick
+            // 
+            this.btnAddRightClick.Location = new System.Drawing.Point(8, 55);
+            this.btnAddRightClick.Name = "btnAddRightClick";
+            this.btnAddRightClick.Size = new System.Drawing.Size(194, 23);
+            this.btnAddRightClick.TabIndex = 1;
+            this.btnAddRightClick.Tag = "se_action_right";
+            this.btnAddRightClick.Text = "button2";
+            this.btnAddRightClick.UseVisualStyleBackColor = true;
+            // 
+            // btnAddLeftClick
+            // 
+            this.btnAddLeftClick.Location = new System.Drawing.Point(8, 22);
+            this.btnAddLeftClick.Name = "btnAddLeftClick";
+            this.btnAddLeftClick.Size = new System.Drawing.Size(194, 23);
+            this.btnAddLeftClick.TabIndex = 0;
+            this.btnAddLeftClick.Tag = "se_action_left";
+            this.btnAddLeftClick.Text = "button1";
+            this.btnAddLeftClick.UseVisualStyleBackColor = true;
             // 
             // SequenceEditorWindow
             // 
@@ -169,6 +254,7 @@
             this.Tag = "se_title";
             this.Text = "Configure";
             this.Load += new System.EventHandler(this.SequenceEditorWindow_Load);
+            this.gbxAdd.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,5 +271,12 @@
         private Button btnSave;
         private Button btnLoad;
         private GroupBox gbxAdd;
+        private Button btnAddMoveAbsolute;
+        private Button btnAddMoveRelative;
+        private Button btnAddScrollDown;
+        private Button btnAddScrollUp;
+        private Button btnAddMiddleClick;
+        private Button btnAddRightClick;
+        private Button btnAddLeftClick;
     }
 }
