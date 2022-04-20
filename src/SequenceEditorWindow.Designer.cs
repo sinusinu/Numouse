@@ -1,4 +1,7 @@
-﻿namespace Numouse {
+﻿// Copyright 2021-2022 Woohyun Shin
+// SPDX-License-Identifier: GPL-3.0-only
+
+namespace Numouse {
     partial class SequenceEditorWindow {
         /// <summary>
         /// Required designer variable.
@@ -97,6 +100,7 @@
             this.btnRemove.Tag = "se_remove";
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnMoveUp
             // 
